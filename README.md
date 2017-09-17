@@ -10,11 +10,13 @@ Example
 Some patterns used , Abstract Factory, Singleton, Decorator, Facade
 
 # Refence
-<https://github.com/moq>
-<https://msdn.microsoft.com/en-us/library/jj193542(v=vs.113).aspx>
-<https://msdn.microsoft.com/es-es/library/system.flagsattribute(v=vs.110).aspx>
+ [moq]([<https://github.com/moq>])
+
+ [Entity Framework Code First](<https://msdn.microsoft.com/en-us/library/jj193542(v=vs.113).aspx>) 
+
+ [Flags Enum](<https://msdn.microsoft.com/es-es/library/system.flagsattribute(v=vs.110).aspx>)
 
 # Article
 
 There are many repositories for logging some open source.
-Article  [.NET Logging Tools and Libraries]<http://www.dotnetlogging.com/>
+[.NET Logging Tools and Libraries](<http://www.dotnetlogging.com/>)
