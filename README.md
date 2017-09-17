@@ -3,7 +3,7 @@
 Example
 
 ```C#
- JobLogger.Warning("Hello!").Wait();
+ JobLogger.Warning("Hello!");
 ```
 
 # Documentation
