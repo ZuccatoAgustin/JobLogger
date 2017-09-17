@@ -11,9 +11,9 @@ namespace Logger
     {
         public DefaultLogConfiguration()
         {
-            //TODO: sacar de configuracion;
-            _allowSource = LogSource.CONSOLE | LogSource.FILE | LogSource.DATABASE;
-            //todo: sacar de configuracion;
+            //TODO: read from configuration;
+            _allowSource = LogSource.CONSOLE | LogSource.FILE; //| LogSource.DATABASE in construction;
+            //todo: read from configuration;
             _allowLevels = LogLevel.INFO | LogLevel.WARNING | LogLevel.ERROR;
         }
 
