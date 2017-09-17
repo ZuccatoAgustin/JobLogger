@@ -5,7 +5,7 @@ Examples
 ```C#
  JobLogger.Info("Hello!");
  JobLogger.Warning("ops!");
- JobLogger.Warning("Error!");   
+ JobLogger.Error("Error!");   
 ```
 
 # Documentation
