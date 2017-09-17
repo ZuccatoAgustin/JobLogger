@@ -3,7 +3,7 @@ using System.Linq;
 using System.Text;
 
 
-namespace JobLoggerPrototype
+namespace JobLoggerOLD
 {
     [System.Obsolete("Use JobLogger")]
     public class JobLogger
@@ -14,7 +14,7 @@ namespace JobLoggerPrototype
         private static bool _logWarning;
         private static bool _logError;
         private static bool LogToDatabase;
-        private bool _initialized;
+        private static bool _initialized;
         public JobLogger(bool logToFile, bool logToConsole, bool logToDatabase, bool
         logMessage, bool logWarning, bool logError)
         {
@@ -24,10 +24,17 @@ namespace JobLoggerPrototype
             LogToDatabase = logToDatabase;
             _logToFile = logToFile;
             _logToConsole = logToConsole;
+            _initialized = true;
         }
         public static void LogMessage(string message, bool info, bool warning, bool
         error)
         {
+
+            if (!_initialized)
+            {
+                throw new Exception("Not Initialized");
+            }
+
             message.Trim();
             if (message == null || message.Length == 0)
             {
