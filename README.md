@@ -14,7 +14,6 @@ Some patterns used , Abstract Factory, Singleton, Decorator, Facade, Configurati
 # Refence
  * [MOQ](<https://github.com/moq>)
  * [Flags Enum](<https://msdn.microsoft.com/es-es/library/system.flagsattribute(v=vs.110).aspx>)
-
  * [Entity Framework Code First](<https://msdn.microsoft.com/en-us/library/jj193542(v=vs.113).aspx>)  not implemented
  * [Dependency Injection Unity](<https://msdn.microsoft.com/en-us/library/dn178463(v=pandp.30).aspx>) not implemented
  
