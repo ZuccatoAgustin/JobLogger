@@ -10,7 +10,7 @@ Example
 Some patterns used , Abstract Factory, Singleton, Decorator, Facade
 
 # Refence
- [moq]([<https://github.com/moq>])
+ [moq](<https://github.com/moq>)
 
  [Entity Framework Code First](<https://msdn.microsoft.com/en-us/library/jj193542(v=vs.113).aspx>) 
 
