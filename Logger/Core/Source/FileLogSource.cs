@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Logger
 {
-    internal class FileLogSource : LogSourceBase
+    public class FileLogSource : LogSourceBase
     {
         private string directory;
         private string name;

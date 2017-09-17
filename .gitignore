@@ -7,3 +7,5 @@
 /LogTestProject/bin/Debug
 /LogTestProject/obj/Debug
 /.vs/Logger/v15/sqlite3/storage.ide
+/packages
+/.vs/Logger/v15

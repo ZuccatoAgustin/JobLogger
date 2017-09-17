@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Logger 
 {
-    internal abstract class LogSourceBase : ILogSource
+    public abstract class LogSourceBase : ILogSource
     { 
         protected string Date()
         {

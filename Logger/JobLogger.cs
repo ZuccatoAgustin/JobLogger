@@ -8,8 +8,8 @@ namespace Logger
 {
     public sealed class JobLogger
     {
-        private readonly ILogSourceFactory logSourceFactory;
-        private readonly ILogConfiguration logConfiguration;
+        private ILogSourceFactory logSourceFactory;
+        private ILogConfiguration logConfiguration;
         private static readonly JobLogger instance;
         private static JobLogger Instance
         {
@@ -23,12 +23,22 @@ namespace Logger
         private JobLogger()
         {
             logConfiguration = Locator.Resolve<ILogConfiguration>() ?? new DefaultLogConfiguration(); 
-            logSourceFactory = new LogSourceFactory();
+            logSourceFactory = Locator.Resolve<ILogSourceFactory>() ?? new LogSourceFactory();
         }
 
         static JobLogger()
         {
             instance = new JobLogger();
+        }
+
+        public static void SetLogConfiguration(ILogConfiguration config)
+        { 
+            Instance.logConfiguration = config;
+        }
+
+        public static void SetLogSourceFactory(ILogSourceFactory factory)
+        {
+            Instance.logSourceFactory = factory;
         }
 
 

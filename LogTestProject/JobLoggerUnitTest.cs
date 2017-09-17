@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Logger;
 using Moq;
+using System.Threading.Tasks;
 
 namespace LogTestProject
 {
@@ -23,8 +24,7 @@ namespace LogTestProject
             var mockConfiguration = new Mock<ILogConfiguration>();
             mockConfiguration.Setup(x => x.AllowLevels).Returns(LogLevel.INFO);
             mockConfiguration.Setup(x => x.AllowSource).Returns(LogSource.CONSOLE);
-            
-            Logger.Fwk.Locator.Register<ILogConfiguration>(() => mockConfiguration.Object);
+            JobLogger.SetLogConfiguration(mockConfiguration.Object);
 
             // act 
             JobLogger.Info(Mensaje).Wait();
@@ -42,8 +42,8 @@ namespace LogTestProject
             var mockConfiguration = new Mock<ILogConfiguration>();
             mockConfiguration.Setup(x => x.AllowLevels).Returns(LogLevel.INFO);
             mockConfiguration.Setup(x => x.AllowSource).Returns(LogSource.FILE);
-            Logger.Fwk.Locator.Reset();
-            Logger.Fwk.Locator.Register<ILogConfiguration>(() => mockConfiguration.Object);
+            JobLogger.SetLogConfiguration(mockConfiguration.Object);
+
 
 
             // act 
@@ -63,9 +63,8 @@ namespace LogTestProject
             var mockConfiguration = new Mock<ILogConfiguration>();
             mockConfiguration.Setup(x => x.AllowLevels).Returns(LogLevel.WARNING);
             mockConfiguration.Setup(x => x.AllowSource).Returns(LogSource.DATABASE);
-            Logger.Fwk.Locator.Reset();
-            Logger.Fwk.Locator.Register<ILogConfiguration>(() => mockConfiguration.Object);
-               
+            JobLogger.SetLogConfiguration(mockConfiguration.Object);
+
             try
             {
                 // act 
@@ -81,6 +80,39 @@ namespace LogTestProject
         }
 
 
-         
+        [TestMethod]
+        public void JobLogger_Test_thrown_MockFactory_WARNING_Only_DATABASE()
+        {
+            // arrange  
+            var Mensaje = "Hi!";
+            var mockConfiguration = new Mock<ILogConfiguration>();
+            mockConfiguration.Setup(x => x.AllowLevels).Returns(LogLevel.WARNING);
+            mockConfiguration.Setup(x => x.AllowSource).Returns(LogSource.DATABASE);
+            JobLogger.SetLogConfiguration(mockConfiguration.Object);
+             
+            var mocksource = new Mock<LogSourceBase>();
+            mocksource.Setup(x => x.Log(Mensaje, LogLevel.WARNING)).Returns(Task.CompletedTask);
+
+            var mockFactory = new Mock<ILogSourceFactory>();
+            mockFactory.Setup(x => x.Create(LogSource.DATABASE)).Returns(mocksource.Object); 
+            JobLogger.SetLogSourceFactory(mockFactory.Object);
+            
+            // act 
+            JobLogger.Warning(Mensaje).Wait();
+
+
+            // assert  
+            mocksource.Verify(foo => foo.Log(Mensaje, LogLevel.WARNING), Times.Once());
+            mocksource.Verify(foo => foo.Log(Mensaje, LogLevel.ERROR), Times.Never());
+            mocksource.Verify(foo => foo.Log(Mensaje, LogLevel.INFO), Times.Never());
+
+            mockFactory.Verify(x => x.Create(LogSource.DATABASE));
+            mockFactory.Verify(x => x.Create(LogSource.CONSOLE), Times.Never());
+            mockFactory.Verify(x => x.Create(LogSource.FILE), Times.Never());
+
+        }
+
+
+
     }
 }

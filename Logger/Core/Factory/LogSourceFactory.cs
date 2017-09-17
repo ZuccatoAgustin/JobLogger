@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Logger
 {
-    internal class LogSourceFactory : GenericAbstractFactory<LogSource, LogSourceBase>, ILogSourceFactory
+    public class LogSourceFactory : GenericAbstractFactory<LogSource, LogSourceBase>, ILogSourceFactory
     {
         public LogSourceFactory()
         {

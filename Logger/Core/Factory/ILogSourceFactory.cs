@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Logger
 {
-    internal interface ILogSourceFactory
+    public interface ILogSourceFactory
     {
         LogSourceBase Create(LogSource logsource);
     }
