@@ -8,7 +8,7 @@ namespace Logger
 {
     [Flags]
     public enum LogSource
-    {
+    {     
         CONSOLE = 1,
         DATABASE = 2,
         FILE = 4

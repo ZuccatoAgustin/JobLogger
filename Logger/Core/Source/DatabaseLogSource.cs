@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Logger 
 {
-    public class DatabaseLogSource : LogSourceBase
+    internal class DatabaseLogSource : LogSourceBase
     {
         public override async Task Log(string message, LogLevel level)
         {

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Logger 
 {
-    public class ConsoleLogSource : LogSourceBase
+    internal class ConsoleLogSource : LogSourceBase
     {
         public override async Task Log(string message, LogLevel level)
         {
