@@ -23,3 +23,8 @@ some good practices may have been left out of the example, depending on the impl
 
 There are many repositories for logging some open source.
 [.NET Logging Tools and Libraries](<http://www.dotnetlogging.com/>)
+
+
+## OLD Implemented
+Previous implementation fixed.
+[JobLogger](<https://github.com/ZuccatoAgustin/JobLogger/blob/master/Logger/JobLoggerOLD.cs>)
