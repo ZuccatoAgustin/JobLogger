@@ -27,4 +27,4 @@ There are many repositories for logging some open source.
 
 ## OLD Implemented
 Previous implementation fixed.
-[JobLogger](<https://github.com/ZuccatoAgustin/JobLogger/blob/master/Logger/JobLoggerOLD.cs>)
+[JobLogger](<https://github.com/ZuccatoAgustin/JobLogger/blob/master/Logger/JobLoggerOLD.cs>) deprecated.
